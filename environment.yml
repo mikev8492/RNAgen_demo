@@ -1,11 +1,8 @@
-name: RNAgen_demo
+name: RNAgen
 channels:
   - conda-forge
   - defaults
 dependencies:
   - python=3.11
-  - pip
-  - pip:
-    - streamlit
-    - fastapi
-    - uvicorn[standard]
+  - streamlit
+

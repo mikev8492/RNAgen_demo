@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import argparse, sys
+from pathlib import Path
 from src.simulator import Simulator
 
 def create_parser(argv: list[str] | None = None) -> argparse.Namespace:
@@ -73,9 +74,17 @@ def validate_arguments(args: argparse.Namespace) -> None:
         sys.stderr.write(f"Error: Minimum ORF length cannot be greater than Maximum")
     return
 
+def create_output() -> None:
+    """
+    Creates output folder for user
+    """
+    folder_path = Path("output")
+    folder_path.mkdir(parents=True, exist_ok=True)
+
 def main(argv: list[str] | None = None) -> int:
     """Main entry point."""
     try:
+        create_output()
         # 1. Parse args
         args = create_parser(argv)
         # 2. Validate args
